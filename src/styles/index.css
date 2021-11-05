@@ -1,0 +1,62 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.btn_primary {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.5rem;
+  background-color: transparent;
+}
+
+/* .light button {
+  color: red !important;
+}
+
+.dark button {
+  background-color: green !important;
+} */
+
+.btn_primary_dark button {
+  color: white !important;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.btn_secondary {
+  height: 3rem;
+  border-radius: 8px;
+}
+
+.btn_sec_wrapper {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.dark_bg {
+  background-color: black;
+  height: 100vh;
+  color: white;
+}
+
+.dark_light {
+  background-color: white;
+  height: 100vh;
+}
