@@ -7,7 +7,7 @@
 }
 
 .container {
-  max-width: 60rem;
+  max-width: 70rem;
   margin: 0 auto;
 }
 
@@ -20,23 +20,23 @@
   background-color: transparent;
 }
 
-/* .light button {
+.light button {
   color: red !important;
 }
 
 .dark button {
   background-color: green !important;
-} */
+}
 
 .btn_primary_dark button {
-  color: white !important;
+  color: white;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 0;
+  padding: 2rem 0 1rem 0;
 }
 
 .btn_secondary {
@@ -51,12 +51,106 @@
 }
 
 .dark_bg {
-  background-color: black;
-  height: 100vh;
-  color: white;
+  background-color: black !important;
+  height: auto;
+  color: #e7e3e3;
 }
 
-.dark_light {
+/* .dark_light {
   background-color: white;
-  height: 100vh;
+  height: auto;
+} */
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.active_navlink,
+.navlink {
+  font-size: 1rem;
+  margin: 0.5rem;
+}
+
+.active_navlink {
+  color: red;
+}
+
+.center {
+  text-align: center;
+}
+
+/* Cards */
+
+.card_container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card_light,
+.card_dark {
+  width: 24%;
+  border-radius: 5px;
+  margin-bottom: 0.7rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.card_light {
+  background-color: #ebebeb;
+}
+
+.card_dark {
+  background-color: #24282a;
+}
+
+.card_img {
+  width: 10rem;
+  height: 10rem;
+}
+
+.score {
+  padding-bottom: 1.3rem;
+  font-size: 2rem;
+}
+.login {
+  text-decoration: none;
+  padding: 1rem;
+}
+
+.login h2 {
+  font-size: 1.5rem;
+  padding: 0.3rem 0;
+}
+
+.col img {
+  width: 2rem;
+  margin-right: 0.5rem;
+}
+
+.col h2 {
+  font-size: 1.3rem;
+  font-weight: 200;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card_content {
+  margin: 0 auto;
+  max-width: 10rem;
+}
+
+.user {
+  font-size: 1.3rem;
+}
+
+.test {
+  background-color: tomato;
 }

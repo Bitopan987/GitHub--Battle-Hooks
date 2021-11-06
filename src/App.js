@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { Route, Routes } from 'react-router';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
+// import { Route, Routes } from 'react-router-dom';
 import GitHubStars from './components/GitHubStars';
 import GithubBattle from './components/GitHubBattle';
 import Battle from './components/Battle';
@@ -24,15 +24,14 @@ class App extends React.Component {
           <BrowserRouter>
             <Header toggleDarkMode={this.toggleDarkMode} {...this.state} />
             <Routes>
-              <Route exact path="/">
-                <GitHubStars {...this.state} />
-              </Route>
+              <Route exact path="/" element={<GitHubStars {...this.state} />} />
+
               <Route exact path="/battle">
                 <GithubBattle {...this.state} />
               </Route>
               <Route
                 path="/userbattle"
-                component={Battle}
+                element={Battle}
                 {...this.state}
               ></Route>
             </Routes>
