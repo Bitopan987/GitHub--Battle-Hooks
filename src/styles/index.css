@@ -154,3 +154,77 @@
 .test {
   background-color: tomato;
 }
+
+/* Battle */
+
+.battle_header {
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+.instruction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.instruction_col img {
+  width: 14rem;
+  height: 12rem;
+}
+
+.instruction_col {
+  flex: 0 1 31%;
+  text-align: center;
+}
+
+.instruction_col h2 {
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 2rem;
+  font-weight: 200;
+}
+
+.form_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form_section form {
+  padding: 2rem;
+  width: 47%;
+}
+
+.handle_input_dark,
+.handle_input_light {
+  flex: 0 1 68%;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  background-color: #e7ebec;
+  font-size: 1.2rem;
+}
+
+.btn_submit {
+  flex: 0 1 30%;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  background-color: #b7cbcf;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form_header {
+  width: 100%;
+  display: block;
+  padding-bottom: 0.4rem;
+  font-size: 1.4rem;
+}
