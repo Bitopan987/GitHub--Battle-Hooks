@@ -18,6 +18,7 @@ class GitHubBattle extends React.Component {
   }
 
   handleSubmit = (event) => {
+    console.dir(event);
     event.preventDefault();
     let id = event.target.dataset.id;
     if (this.state[id]) {
@@ -97,7 +98,7 @@ class GitHubBattle extends React.Component {
           </div>
         </section>
         <section className="player_container">
-          <h2>Players</h2>
+          <h2 className="player_header">Players</h2>
           <div>
             <Players
               {...this.state}
