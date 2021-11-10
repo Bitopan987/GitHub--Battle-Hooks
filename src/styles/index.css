@@ -101,10 +101,12 @@
 
 .card_light {
   background-color: #ebebeb;
+  height: auto;
 }
 
 .card_dark {
   background-color: #24282a;
+  height: auto;
 }
 
 .card_img {
@@ -273,4 +275,92 @@
   position: absolute;
   top: 1.6rem;
   right: 1.6rem;
+}
+
+.battle {
+  text-align: center;
+  background-color: aquamarine;
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  background-color: #2286e4f5;
+  color: white;
+  margin: 1rem 0;
+}
+
+.battle_link {
+  text-decoration: none;
+}
+
+.center {
+  text-align: center;
+}
+
+.result_col img {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-right: 1rem;
+}
+
+.result_col {
+  display: flex;
+  text-align: center;
+  padding: 0.5rem 0;
+  align-items: center;
+}
+
+.result_login {
+  margin-bottom: 1.4rem;
+  font-size: 2rem;
+  color: red;
+}
+
+.result_img {
+  height: 15rem;
+  width: 15rem;
+  border-radius: 50%;
+  margin: 1rem 0;
+}
+
+.result_dark,
+.result_light {
+  background-color: #e8f1f5;
+  padding: 2rem;
+  flex: 0 1 40%;
+  text-align: center;
+  height: auto;
+}
+
+.result_dark {
+  background-color: rgb(36, 40, 42);
+  color: aliceblue;
+  height: auto;
+}
+
+.result_section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.result_header {
+  padding: 1rem 0;
+}
+
+.result_score {
+  padding: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.btn_reset {
+  padding: 0.5rem 1.2rem;
+  background-color: #0f5fbb;
+  text-decoration: none;
+  display: inline-block;
+  color: aliceblue;
+  border-radius: 5px;
+}
+
+.btn_wrapper {
+  margin: 2rem 0;
 }
