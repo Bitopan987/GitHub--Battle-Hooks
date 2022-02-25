@@ -5,111 +5,100 @@ import Header from './components/Header';
 import GitHubStars from './components/GitHubStars';
 import GitHubBattle from './components/GitHubBattle';
 import Battle from './components/Battle';
+import { useState } from 'react';
 
-class App extends React.Component {
-  constructor(props) {
-    super();
-    this.state = {
-      inputText1: '',
-      inputText2: '',
-      hideForm1: false,
-      hideForm2: false,
-      data1: '',
-      data2: '',
-      closeUser1Data: true,
-      closeUser2Data: true,
-      darkMode: false,
-    };
-  }
+function App() {
+  let [inputText1, setInputText1] = useState('');
+  let [inputText2, setInputText2] = useState('');
+  let [hideForm1, setHideForm1] = useState(false);
+  let [hideForm2, setHideForm2] = useState(false);
+  let [data1, setData1] = useState('');
+  let [data2, setData2] = useState('');
+  let [closeUser1Data, setCloseUser1Data] = useState(true);
+  let [closeUser2Data, setCloseUser2Data] = useState(true);
+  let [darkMode, setDarkMode] = useState('');
 
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     console.dir(event);
     event.preventDefault();
     let id = event.target.dataset.id;
-    if (this.state[id]) {
-      fetch(`https://api.github.com/users/${this.state[id]}`)
+    if (inputText1 || inputText2) {
+      fetch(`https://api.github.com/users/${inputText1 || inputText2}`)
         .then((res) => res.json())
         .then((data) => {
           if (id === 'inputText1') {
-            this.setState({
-              [id]: '',
-              data1: data,
-              hideForm1: true,
-              closeUser1Data: false,
-            });
+            setInputText1('');
+            setData1(data);
+            setHideForm1(true);
+            setCloseUser1Data(false);
           } else {
-            this.setState({
-              [id]: '',
-              data2: data,
-              hideForm2: true,
-              closeUser2Data: false,
-            });
+            setInputText2('');
+            setData2(data);
+            setHideForm2(true);
+            setCloseUser2Data(false);
           }
         });
     }
   };
 
-  handleChange = ({ target }) => {
+  const handleChange = ({ target }) => {
     let { value } = target;
     let id = target.dataset.id;
-    this.setState({ [id]: value });
-  };
-
-  handleKeyPress = (event) => {
-    if (event.target === 13) {
-      this.handleSubmit(event);
+    if (id === 'inputText1') {
+      setInputText1(value);
+    } else {
+      setInputText2(value);
     }
   };
 
-  closeUserData = ({ target }) => {
+  const handleKeyPress = (event) => {
+    if (event.target === 13) {
+      handleSubmit(event);
+    }
+  };
+
+  const closeUserData = ({ target }) => {
     let id = target.dataset.id;
     if (id === 'user1') {
-      this.setState((prevState) => ({
-        hideForm1: !prevState.hideForm1,
-        closeUser1Data: !prevState.closeUser1Data,
-        data1: '',
-      }));
+      setHideForm1(!hideForm1);
+      setCloseUser1Data(!closeUser1Data);
+      setData1('');
     } else {
-      this.setState((prevState) => ({
-        hideForm2: !prevState.hideForm2,
-        closeUser2Data: !prevState.closeUser2Data,
-        data2: '',
-      }));
+      setHideForm2(!hideForm1);
+      setCloseUser2Data(!closeUser1Data);
+      setData2('');
     }
   };
-  toggleDarkMode = () => {
-    this.setState((prevState) => ({ darkMode: !prevState.darkMode }));
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
   };
 
-  render() {
-    return (
-      <div className={this.state.darkMode ? 'dark_bg' : 'light_bg'}>
-        <div className="container">
-          <BrowserRouter>
-            <Header toggleDarkMode={this.toggleDarkMode} {...this.state} />
-            <Routes>
-              <Route exact path="/" element={<GitHubStars {...this.state} />} />
-              <Route
-                exact
-                path="/battle"
-                element={
-                  <GitHubBattle
-                    {...this.state}
-                    handleSubmit={this.handleSubmit}
-                    handleChange={this.handleChange}
-                    handleKeyPress={this.handleKeyPress}
-                    closeUserData={this.closeUserData}
-                  />
-                }
-              />
+  return (
+    <div className={darkMode ? 'dark_bg' : 'light_bg'}>
+      <div className="container">
+        <BrowserRouter>
+          <Header toggleDarkMode={toggleDarkMode} />
+          <Routes>
+            <Route exact path="/" element={<GitHubStars />} />
+            <Route
+              exact
+              path="/battle"
+              element={
+                <GitHubBattle
+                  handleSubmit={handleSubmit}
+                  handleChange={handleChange}
+                  handleKeyPress={handleKeyPress}
+                  closeUserData={closeUserData}
+                />
+              }
+            />
 
-              <Route path="/userbattle" element={<Battle {...this.state} />} />
-            </Routes>
-          </BrowserRouter>
-        </div>
+            <Route path="/userbattle" element={<Battle />} />
+          </Routes>
+        </BrowserRouter>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;
